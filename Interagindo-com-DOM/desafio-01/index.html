@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="desafio">
+    <!-- Preencher a tag <p> com Nome e idade -->
+    <p>Meu nome é {{ meuNome }} e eu tenho {{ idade }} </p>
+
+    <!-- Exiba a idade X3 -->
+    <p> {{ idade * 3 }} </p>
+    <p> {{ idadeVezes3() }} </p>
+
+    <!-- Função com numero randomico entre 0 e 1 Math.random-->
+    <p> {{ randomico() }} </p>
+
+    <!-- Imagem de qualquer lugar, e exiba na tag <img> fazendo bind no atributo -->
+    <img v-bind:src="link" height="400">
+
+    <hr>
+
+    <!-- input com seu nome atribute "value" -->
+    <div>
+        <input type="text" v-bind:value="meuNome">
+    </div>
+</div>
+
+<script src="app.js"></script>
