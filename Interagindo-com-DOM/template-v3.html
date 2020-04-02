@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p>
+    <p> {{ saudacao() }} </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            titulo: 'Usando VueJS'
+        },
+        methods: {
+            saudacao: function() {
+                return this.titulo
+            }
+        },
+    })
+</script>
+
+<!-- 
+    - com 'this' consegue acessar o titulo dentro de 'data'
+    - this voce pode acessar as funções
+    - this, neste contexto, representa a instancia do Vue
+    - não pode ter uma função e dado que tenha o mesmo NOME.   --- IMPORTANTE
+    - 
+ -->

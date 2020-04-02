@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p>
+    <p> {{ saudacao() }} </p>
+    <a v-bind:href="link">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            titulo: 'Usando VueJS',
+            link: 'https://google.com'
+        },
+        methods: {
+            saudacao: function() {
+                return this.titulo
+            }
+        },
+    })
+</script>
+
+<!-- 
+    - colocando a instancia de 'link' dentro do 'href' da tag 'a'
+    - Usando a diretriz 'v-bind' mais a tag que voce quer
+        - v-bind faz a ligação que esta na Vue instance, e um atributo da tag no template
+ -->
