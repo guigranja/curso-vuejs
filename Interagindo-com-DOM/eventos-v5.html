@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ contador }} </p>
+    <button v-on:click="somar(5, $event)">Somar 1</button> <!-- Passando parametro dentro da função -->
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{ x }} {{ y }} <!-- Recebe os eventos de estar passando o mouse -->
+        <span v-on:mousemove.stop.prevent="">PARAR AQUI O EVENTO !!</span>  <!-- Para o evento acima -->
+    </p>
+    <a v-on:click.prevent="" href="https://google.com">Google</a> <!-- Remove o comportamento padrão -->
+    <hr>
+    <input type="text" v-on:keyup.enter.alt="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar(passo) {
+                this.contador += passo;
+            },
+            atualizarXY(event) {
+                this.x = event.clientX,
+                this.y = event.clientY
+            },
+            parar(e) {
+                e.stopPropagation();
+            },
+            exibirAlerta() {
+                alert("Estou te alertando!");
+            }
+        }
+    })
+</script>
+
+<!-- 
+    Eventos do teclado.
+    Modificador de acesso
+ -->

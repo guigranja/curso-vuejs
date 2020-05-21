@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="desafio">
+    <!-- Exiba um alert quando o botão for clicado -->
+    <div>
+        <button v-on:click="alerta">Exibir Alerta</button>
+    </div>
+
+    <hr>
+
+    <!-- Escute o evento "keyup" e armazene "valor" na propriedade data (dica: event.target.value) -->
+    <div>
+        <input type="text" v-on:keyup="alterarValor">
+        <p> {{ valor }} </p>
+    </div>
+
+    <hr>
+
+    <!-- Ajuste o exemplo 2 para disparar o evento "keydown" somente quando a tecla for ENTER -->
+    <div>
+        <input type="text" v-on:keydown.enter="alterarValor">
+        <p> {{ valor }} </p>
+    </div>
+</div>
+
+<script src="app.js"></script>
