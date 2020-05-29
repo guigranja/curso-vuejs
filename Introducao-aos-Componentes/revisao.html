@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <contador></contador>
+</div>
+
+<script>
+    Vue.component('contador', {
+        //Fazendo funcionar
+        template: `
+            <div>
+                <span>{{ contador }}</span>
+                <br>
+                <button @click="contador++">+</button>
+                <button @click="contador--">-</button>
+            </div>
+        `,
+        data() {
+            return {
+                contador: 0
+            }
+        }
+    })
+    new Vue({
+        el: '#app'
+    })
+</script>
+
+<!--
+    Revisão sobre Componentes
+
+    Duplicando uma DIV, o "el", mesmo apontando para ambos, vai monitorar somente uma
+
+    Cria o componente, coloca qual TAG ira monitorar, cria-se o template, e o "data" vira uma função com um return
+
+    Fato de ter um componente retulizavel, pode duplicar a TAG cada um com estado idependente, mas com a mesma função
+
+    Pode chamar os compenentes usando case sensitive.
+-->
