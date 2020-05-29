@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <comp></comp>
+</div>
+
+<script>
+    const dados = {
+
+    }
+
+    Vue.component('comp', {
+        template: `
+            <div>
+                <h1>{{ aula }}</h1>
+                <h2>{{ modulo }}</h2>
+                <button @click="alterarAula">Alterar Aula</button>
+                <button @click="alterarModulo">Aletrar Modulo</button>
+            </div>
+        `,
+        data: function() {
+            return {
+                aula: 'Aula: Monatando Instancia Vue',
+                modulo: 'Modulo: Instancia Vue'
+            }
+        },
+        methods: {
+            alterarAula() {
+                this.aula += ' #'
+            },
+            alterarModulo() {
+                this.modulo += ' #'
+                console.log(this.$ref.aulaRef.innerText)
+            }
+        }
+    })
+
+    const vm = new Vue({
+        el: '#app'
+    })
+</script>
+
+<!--
+    Usando Componentes
+    Mudamos para que "data" retorno uma função, que retorna os dados. Para que cada componente seja independente
+-->
