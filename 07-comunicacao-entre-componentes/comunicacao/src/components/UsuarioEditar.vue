@@ -18,3 +18,7 @@ export default {
         color: #fff;
     }
 </style>
+
+<!--
+    no componente filho, dentro de "export defaut", voce passa as propriedades que a TAG ira receber no componente pai
+-->
