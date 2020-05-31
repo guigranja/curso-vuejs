@@ -2,12 +2,17 @@
     <div class="componente">
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
-        <p>Nome do Usuario ... <strong>{{ nome }}</strong></p>
+        <p>Nome do Usuario ... <strong>{{ inverterNome() }}</strong></p>
+        <p>Idade do Usuario: <strong>{{ idade }}</strong></p>
         <button @click="reiniciarNome">Reiniciar Nome</button>
+        <button @click="reiniciarFn">Reiniciar Nome (Callback)</button>
     </div>
 </template>
 
 <script>
+// Event Bus
+import barramento from "../barramento";
+
 export default {
     // Comunicação direta entre componentes
     // Passa valor nome, que sera esperado na TAG, dentro de Usuario.vue
@@ -22,7 +27,9 @@ export default {
           // default: function () {
           //     return Array(1).fill('convidado-'+Math.floor(Math.random() * 100)).join(',')
           // }
-      }
+      },
+        reiniciarFn: Function,
+        idade: Number
     },
     methods: {
         // Usando props no Componente filho
@@ -31,7 +38,7 @@ export default {
         },
         // Comunicação Indireta com Eventos Personalizados
         reiniciarNome() {
-            const old = this.nome
+            // const old = this.nome
             this.nome = 'Pedro Silva'
             // Disparando evento
             this.$emit('nomeMudou', this.nome)
@@ -41,6 +48,12 @@ export default {
             //     old
             // })
         }
+    },
+    // Metodo de ciclo de vida. Vamos escutar o evento que foi emitido
+    created() {
+        barramento.quandoIdadeMudar(idade => {
+            this.idade = idade
+        })
     }
 }
 </script>

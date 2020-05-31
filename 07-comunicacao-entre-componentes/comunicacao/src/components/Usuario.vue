@@ -3,6 +3,7 @@
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
         <p>Nome é <strong>{{ nome }}</strong></p>
+        <p>Idade é: {{ idade }}</p>
         <button @click="alterarNome">Alterar Nome</button>
         <hr>
         <div class="componentes">
@@ -10,9 +11,13 @@
             <!-- @mudouNome é um evento indireto, vindo do filho Usuarioindo.vue -->
             <app-usuario-info
                     :nome="nome"
+                    :idade="idade"
                     @nomeMudou="nome = $event"
+                    :reiniciarFn="reinicarNome"
             />
-            <app-usuario-editar />
+            <app-usuario-editar
+                :idade="idade"
+            />
         </div>
     </div>
 </template>
@@ -25,12 +30,17 @@ export default {
     components: { AppUsuarioInfo, AppUsuarioEditar },
     data() {
         return {
-            nome: 'Pedro Silva'
+            nome: 'Pedro Silva',
+            idade: 26
         }
     },
     methods: {
         alterarNome() {
             this.nome = 'Guilherme Granja'
+        },
+        // Para função callback
+        reinicarNome() {
+            this.nome = "Pedro Silva"
         }
     }
 }
@@ -59,4 +69,7 @@ export default {
 <!--
     Componente pai recebe a propriedade esperada, passando o valor dela
     Nome das propriedades são Case Sensitive
+
+    Comunicação indireta com callback
+
 -->
