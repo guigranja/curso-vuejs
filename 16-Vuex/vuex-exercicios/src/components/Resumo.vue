@@ -13,7 +13,7 @@ import { mapGetters } from 'vuex'
 
 export default {
     // Formas de acessar os getters da $store
-    computed: mapGetters({
+    computed: mapGetters('carrinho', {
         total: 'valorTotal'
     })
 // Formas de acessar os getters da $store

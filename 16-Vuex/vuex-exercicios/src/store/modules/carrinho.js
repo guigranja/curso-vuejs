@@ -1,4 +1,6 @@
 export default {
+    // Definindo um namespace. o namespace se chamará 'carrinho'
+    namespaced:  true,
     state: {
         produtos: []
     },
@@ -16,7 +18,7 @@ export default {
             state.produtos.push(payload)
         }
     },
-    // Lugar que vão executar regra de negocio
+    // Lugar que vão executar regra de negocio. Chamadas no back-end
     actions: {
         adicionarProduto({ commit }, payload) {
             // Simulação de um assincronimos

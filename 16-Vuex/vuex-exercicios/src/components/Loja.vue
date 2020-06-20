@@ -20,7 +20,8 @@ export default {
     },
     methods: {
         //Formas de chamar a action que fara o commit para a mutation
-        ...mapActions(['adicionarProduto']),
+        // Primeiro parametro é o namespace definido
+        ...mapActions('carrinho', ['adicionarProduto']),
         adicionar() {
             const produto = {
                 id: this.sequencia,
@@ -38,6 +39,10 @@ export default {
 
             // this.$store.dispatch('adicionarProduto', produto)
             this.adicionarProduto(produto)
+
+            // Usando Arquivos Separados. Sem usar modulos
+            console.log(this.$store.getters.getNome)
+            console.log(this.$store.getters.getNomeCompleto)
         }
     },
     computed: {

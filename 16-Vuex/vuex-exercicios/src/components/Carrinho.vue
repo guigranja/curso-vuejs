@@ -31,7 +31,7 @@ import {mapGetters} from "vuex";
 export default {
     computed: {
         // usamos o spread ... pois temos outras propriedades computadas
-        ...mapGetters({
+        ...mapGetters('carrinho', {
             total: 'valorTotal'
         }),
         produtos() {
